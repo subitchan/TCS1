@@ -1,0 +1,66 @@
+<h2 class="section-heading">
+  <span class="material-icons-round">assignment_ind</span>
+  Job Applications for Your Company
+</h2>
+
+<!-- 🔍 Filters -->
+<div class="filters">
+  <!-- Name / Skill search -->
+  <input
+    type="text"
+    placeholder="Search by name or skill"
+    [(ngModel)]="unifiedSearch"
+  />
+
+  <!-- Job ID filter -->
+  <input
+    type="number"
+    placeholder="Job ID"
+    [(ngModel)]="jobIdFilter"
+  />
+
+  <!-- Status filter -->
+  <select [(ngModel)]="statusFilter">
+    <option value="">All statuses</option>
+    <option value="APPLIED">APPLIED</option>
+    <option value="SHORTLISTED">SHORTLISTED</option>
+    <option value="REJECTED">REJECTED</option>
+    <option value="HIRED">HIRED</option>
+  </select>
+</div>
+
+<!-- 🚫 Empty State -->
+<div *ngIf="filteredApplications.length === 0" class="no-results">
+  <p>No applications match your filters.</p>
+</div>
+
+<!-- 📄 Applications List -->
+<div class="application-container">
+  <div *ngFor="let app of filteredApplications" class="application-card">
+    <p><strong>Job Title:</strong> {{ app.job.jobTitle }}</p>
+    <p><strong>Job ID:</strong> {{ app.job.jobId }}</p>
+    <p><strong>Applicant Name:</strong> {{ app.jobSeeker.fullName }}</p>
+    <p><strong>Skill:</strong> {{ app.jobSeeker.skills }}</p>
+    <p><strong>Status:</strong> {{ app.applicationStatus }}</p>
+
+    <!-- 📎 Resume Download -->
+    <button
+      (click)="download(app.resume.resumeId!, app.resume.resumeFilename)"
+    >
+      <span class="material-icons-round">download</span>
+      Download Resume
+    </button>
+
+    <!-- ✅ Status Dropdown -->
+    <select
+      [value]="app.applicationStatus"
+      #statusSelect
+      (change)="updateStatus(app.applicationId!, statusSelect.value)"
+    >
+      <option value="APPLIED">APPLIED</option>
+      <option value="SHORTLISTED">SHORTLISTED</option>
+      <option value="REJECTED">REJECTED</option>
+      <option value="HIRED">HIRED</option>
+    </select>
+  </div>
+</div>

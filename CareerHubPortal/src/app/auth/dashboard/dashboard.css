@@ -1,0 +1,73 @@
+/* 🌄 Background Image Container */
+.background {
+  min-height: 100vh;
+  background-image: url('../../../assets/image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem;
+}
+
+/* 🧭 Headers */
+h1, h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+/* 📃 Paragraphs */
+p {
+  text-align: center;
+  color: #eee;
+}
+
+/* 🎯 Button Group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* 🔘 Buttons */
+button {
+  background-color: rgba(33, 150, 243, 0.85);
+  border: none;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: rgba(25, 118, 210, 0.85);
+}
+
+.separator {
+  color: #bbdefb;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+/* 🗂️ Cards / Sections */
+.card {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔗 Links */
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}

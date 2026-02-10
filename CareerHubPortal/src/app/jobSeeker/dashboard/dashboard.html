@@ -1,0 +1,34 @@
+<div class="dashboard-banner">
+  <div class="banner-content">
+    <div>
+      <h1>Welcome {{ profile.fullName }}</h1>
+      <p>Manage your profile and apply for your dream jobs</p>
+
+      <div class="dashboard-buttons">
+        <button routerLink="view-me">View Me</button>
+        <button routerLink="update-me">Update Me</button>
+        <button routerLink="apply-jobs">Apply Jobs</button>
+        <button routerLink="my-applications">My Applications</button>
+        <!-- <button routerLink="ai-chat">Chat Bot</button> -->
+
+
+      </div>
+    </div>
+
+    <div class="banner-image-wrapper">
+      <div class="banner-image">
+        <img src="https://cdn-icons-png.flaticon.com/128/3850/3850285.png" alt="AI Illustration" />
+      </div>
+      <div class="logout-button-below">
+        <button (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+  <app-career-chatbot-component> </app-career-chatbot-component>
+</div>
+
+
+<!-- Routed components go here -->
+<div class="dashboard-container">
+  <router-outlet></router-outlet>
+</div>

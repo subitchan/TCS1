@@ -1,0 +1,41 @@
+<div #chatContainer class="chatbot-container" [class.open]="isOpen">
+  <div class="chatbot-header" (click)="toggleChat()">
+    💬 Career Assistant
+    <span *ngIf="loading" class="typing">• • •</span>
+  </div>
+
+  <div class="chatbot-body" *ngIf="isOpen">
+    <div *ngFor="let msg of messages" [ngClass]="msg.sender">
+      {{ msg.text }}
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <button (click)="generateCoverLetter()" *ngIf="!coverLetterDisabled">
+        📝 Write a Cover Letter
+      </button>
+    </div>
+
+    <!-- Input -->
+    <div class="chat-input">
+      <input
+        [(ngModel)]="inputMessage"
+        placeholder="Ask me anything..."
+        (keyup.enter)="sendMessage()"
+      />
+
+
+<button (click)="sendMessage()"  [disabled]="loading">
+  <span *ngIf="loading" class="loader"></span>
+  <span>{{ loading ? 'Loading...' : 'Send' }}</span>
+</button>
+
+
+
+      <button (click)="clearChat()" class="clear-btn">Clear</button>
+    </div>
+  </div>
+
+  <!-- Resize handle -->
+  <div #resizeHandle class="resize-handle"></div>
+</div>

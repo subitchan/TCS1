@@ -1,0 +1,91 @@
+/* Wrapper for the whole form */
+.profile-form {
+  max-width: 500px;
+  margin: 1rem auto;
+  padding: 1.5rem 2rem;
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Each row: label + input */
+.form-row {
+  display: flex;
+  flex-direction: column;      /* stack on narrow screens */
+  margin-bottom: 1.2rem;
+}
+
+/* Label styling */
+.form-row label {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+
+/* Icons next to label text */
+.form-row .material-icons-round {
+  font-size: 20px;
+  margin-right: 0.5rem;
+  color: #1976d2;              /* adjust accent if needed */
+}
+
+/* Inputs */
+.form-row input {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #ccd1d9;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-row input:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 10rem;  /* wider horizontally, same height */
+  min-width: 220px;        /* ensures wide look */
+  border: none;
+  border-radius: 6px;
+  background: #1976d2;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease-in-out;
+}
+
+.submit-btn:hover {
+  background: #1254a9;
+}
+
+.submit-btn:active {
+  transform: scale(0.97);
+}
+
+.submit-container {
+  text-align: center;
+  margin-top: 1.2rem;
+  
+}
+
+.err {
+  color: crimson;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #666;
+  border: 1px solid #999;
+}

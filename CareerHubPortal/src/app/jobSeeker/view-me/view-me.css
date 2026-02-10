@@ -1,0 +1,66 @@
+.profile-container {
+  max-width: 550px;
+  margin: 2rem auto;
+  padding: 2rem 2.5rem;
+  border-radius: 1.2rem;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: #222;
+}
+
+/* Header section with icon and title */
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.profile-header .material-icons-round {
+  font-size: 28px;
+  color: #1976d2;
+  margin-right: 0.6rem;
+}
+
+.profile-header h2 {
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Full name under header */
+.profile-name {
+  font-size: 1.2rem;
+  margin: 0 0 1.5rem 2.2rem;   /* lines up with icon */
+  /* border-bottom removed */
+}
+
+/* Each field block */
+.profile-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 1rem 0;
+}
+
+.profile-item .material-icons-round {
+  font-size: 22px;
+  margin-right: 1rem;
+  color: #1976d2;
+  margin-top: 2px;
+}
+
+/* Label + value */
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info strong {
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.profile-info span {
+  font-size: 0.95rem;
+  word-break: break-word;
+}

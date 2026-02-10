@@ -1,0 +1,44 @@
+<div class="job-form-card" [formGroup]="jobForm">
+
+  <h3>
+    <span class="material-icons-round">work_outline</span>
+    Post a New Job
+  </h3>
+
+  <label>
+    <span class="material-icons-round">title</span>
+    Job Title
+  </label>
+  <input type="text" formControlName="jobTitle" />
+
+  <label>
+    <span class="material-icons-round">description</span>
+    Description
+  </label>
+  <textarea formControlName="jobDescription"></textarea>
+
+  <label>
+    <span class="material-icons-round">location_on</span>
+    Location
+  </label>
+  <input type="text" formControlName="location" />
+
+  <label>
+    <span class="material-icons-round">paid</span>
+    Salary Range
+  </label>
+  <input type="text" formControlName="salaryRange" />
+
+  <label>
+    <span class="material-icons-round">build</span>
+    Skills Required
+  </label>
+  <input type="text" formControlName="skillsRequired" />
+
+<button type="submit" [disabled]="jobForm.invalid" (click)="postJob()">
+  <span class="material-icons-round">send</span>
+  Post Job
+</button>
+
+
+</div>

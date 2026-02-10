@@ -1,0 +1,17 @@
+<p>apply-for-job works!</p>
+<div class="apply-job-wrapper">
+  <h3>Apply for Job</h3>
+
+  <!-- Resume file upload -->
+  <input type="file" (change)="onFileSelected($event)">
+
+  <!-- Show upload status -->
+  <p *ngIf="uploadMessage">{{ uploadMessage }}</p>
+
+  <!-- Apply button -->
+  <button (click)="applyNow()" [disabled]="!resumeId">Apply</button>
+
+  <!-- Application status -->
+  <p *ngIf="statusMessage" class="status">{{ statusMessage }}</p>
+</div>
+

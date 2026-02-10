@@ -1,0 +1,43 @@
+<form class="update-card" [formGroup]="employerForm" (ngSubmit)="updateProfile()">
+
+  <h3>
+    <span class="material-icons-round">edit</span>
+    Update Employer Profile
+  </h3>
+
+  <!-- Company Name -->
+  <label>
+    <span class="material-icons-round">business</span>
+    Company Name
+  </label>
+  <input type="text" formControlName="companyName" />
+  <div *ngIf="employerForm.get('companyName')?.errors?.['required'] && employerForm.get('companyName')?.touched" class="err">
+    Company name is required.
+  </div>
+
+  <!-- Company Website -->
+  <label>
+    <span class="material-icons-round">language</span>
+    Company Website
+  </label>
+  <input type="text" formControlName="companyWebsite" />
+  <div *ngIf="employerForm.get('companyWebsite')?.errors?.['required'] && employerForm.get('companyWebsite')?.touched" class="err">
+    Company website is required.
+  </div>
+
+  <!-- Contact Email -->
+  <label>
+    <span class="material-icons-round">mail</span>
+    Contact Email
+  </label>
+  <input type="email" formControlName="contactEmail" />
+  <div *ngIf="employerForm.get('contactEmail')?.errors?.['required'] && employerForm.get('contactEmail')?.touched" class="err">
+    Contact email is required.
+  </div>
+
+  <button type="submit" [disabled]="employerForm.invalid">
+    <span class="material-icons-round">save</span>
+    Update
+  </button>
+
+</form>

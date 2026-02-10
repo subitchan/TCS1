@@ -1,0 +1,71 @@
+/* Container for the whole form */
+.apply-job-wrapper {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Heading (optional, if you add one) */
+.apply-job-wrapper h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* File input style */
+.apply-job-wrapper input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+/* Upload message */
+.apply-job-wrapper p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #28a745; /* success green */
+}
+
+/* Apply button */
+.apply-job-wrapper button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 8px;
+}
+
+.apply-job-wrapper button:hover {
+  background-color: #0056b3;
+}
+
+.apply-job-wrapper button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Application status message */
+.apply-job-wrapper .status {
+  margin-top: 12px;
+  padding: 10px;
+  background-color: #f0f4ff;
+  border: 1px solid #b6d4fe;
+  border-radius: 5px;
+  color: #084298;
+  font-size: 14px;
+}

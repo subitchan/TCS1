@@ -1,0 +1,11 @@
+<div class="background">
+  <div class="button-group">
+    <button routerLink="login">Login</button>
+    <span class="separator">/</span>
+    <button routerLink="register">Register</button>
+  </div>
+
+  <div [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+</div>

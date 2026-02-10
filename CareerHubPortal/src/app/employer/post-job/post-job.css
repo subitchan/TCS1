@@ -1,0 +1,91 @@
+/* Blue-themed post job form */
+
+.job-form-card {
+  background: #f0f8ff;
+  border: 1px solid #90caf9;
+  border-radius: 10px;
+  padding: 24px 28px;
+  max-width: 550px;
+  margin: 24px auto;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+/* Heading */
+.job-form-card h3 {
+  font-size: 1.5rem;
+  color: #1976d2;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Labels */
+.job-form-card label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 12px 0 6px;
+  font-weight: 600;
+  color: #0d47a1;
+}
+
+/* Inputs and Textarea */
+.job-form-card input,
+.job-form-card textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.95rem;
+  border: 1px solid #bbdefb;
+  border-radius: 6px;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+.job-form-card input:focus,
+.job-form-card textarea:focus {
+  border-color: #1e88e5;
+  outline: none;
+}
+
+/* Submit Button */
+.job-form-card button {
+  margin-top: 20px;
+  width: 100%;
+  background: #2196f3;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.job-form-card button:disabled {
+  background: #90caf9;
+  cursor: not-allowed;
+}
+.job-form-card button:hover:not(:disabled) {
+  background: #1976d2;
+}
+
+/* Icons */
+.material-icons-round {
+  font-size: 1.2rem;
+  color: #2196f3;
+}
+
+.job-form-card button:disabled {
+  background: #90caf9;       /* duller blue */
+  cursor: not-allowed;       /* 🚫 shows forbidden cursor */
+  opacity: 0.7;              /* slightly faded look */
+}
+
+.job-form-card button:hover:not(:disabled) {
+  background: #1976d2;
+}

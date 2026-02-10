@@ -1,0 +1,91 @@
+.update-card {
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+  border-radius: 10px;
+  padding: 24px 28px;
+  max-width: 550px;
+  margin: 24px auto;
+  box-shadow: 0 4px 8px rgba(25, 118, 210, 0.12);
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+/* Heading */
+.update-card h3 {
+  font-size: 1.5rem;
+  color: #1976d2;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Labels */
+.update-card label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 12px 0 6px;
+  font-weight: 600;
+  color: #0d47a1;
+}
+
+/* Inputs */
+.update-card input {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.95rem;
+  border: 1px solid #bbdefb;
+  border-radius: 6px;
+  transition: border-color 0.2s ease;
+}
+.update-card input:focus {
+  border-color: #1e88e5;
+  outline: none;
+}
+
+/* Error Messages */
+.err {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+/* Submit Button */
+.update-card button {
+  margin-top: 20px;
+  width: 100%;
+  background: #2196f3;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.update-card button:disabled {
+  background: #90caf9;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.update-card button:hover:not(:disabled) {
+  background: #1976d2;
+}
+
+/* Icons */
+.material-icons-round {
+  font-size: 1.2rem;
+  color: #2196f3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}

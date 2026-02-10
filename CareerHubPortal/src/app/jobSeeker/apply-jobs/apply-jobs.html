@@ -1,0 +1,53 @@
+
+
+<!-- 🔍 Search Input -->
+<input
+  type="text"
+  [(ngModel)]="searchText"
+  placeholder="Search by title or skills..."
+  class="search-input"
+/>
+
+<!-- 🏢 Company Dropdown -->
+<select [(ngModel)]="selectedCompany" class="filter-dropdown">
+  <option value="">All Companies</option>
+  <option *ngFor="let company of uniqueCompanies" [value]="company">
+    {{ company }}
+  </option>
+</select>
+
+<!-- 💰 Min Salary Input -->
+<input
+  type="number"
+  [(ngModel)]="minSalary"
+  placeholder="Min Salary (LPA)"
+  class="filter-input"
+/>
+
+<!-- 💰 Max Salary Input -->
+<input
+  type="number"
+  [(ngModel)]="maxSalary"
+  placeholder="Max Salary (LPA)"
+  class="filter-input"
+/>
+
+<!-- Job Cards -->
+<div class="card-grid">
+  <div class="job-card" *ngFor="let job of filteredJobs()">
+    <h3 class="job-title">{{ job.jobTitle }}</h3>
+    <p class="company-name">Employer Name: {{ job.employer.companyName }}</p>
+    <p class="location">📍 {{ job.location }}</p>
+    <p class="description">{{ job.jobDescription }}</p>
+    <p class="skills"><strong>Skills:</strong> {{ job.skillsRequired }}</p>
+    <p class="salary"><strong>Salary:</strong> {{ job.salaryRange }}</p>
+
+    <button *ngIf="!hasApplied(job.jobId!); else appliedBlock" (click)="applyToJob(job.jobId!)">
+      Apply Now
+    </button>
+
+    <ng-template #appliedBlock>
+      <span class="applied-status">✅ Applied</span>
+    </ng-template>
+  </div>
+</div>

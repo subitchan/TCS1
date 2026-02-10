@@ -1,0 +1,74 @@
+<form [formGroup]="profileForm" (ngSubmit)="updateProfile()" class="profile-form">
+
+  <!-- Full Name -->
+  <div class="form-row">
+    <label for="fullName">
+      <span class="material-icons-round">person</span>
+      Full Name
+    </label>
+    <input id="fullName" type="text" formControlName="fullName" />
+    <div *ngIf="profileForm.get('fullName')?.errors?.['required'] && profileForm.get('fullName')?.touched" class="err">
+      Full Name is required.
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="form-row">
+    <label for="email">
+      <span class="material-icons-round">mail</span>
+      Email
+    </label>
+    <input id="email" type="email" formControlName="email" />
+    <div *ngIf="profileForm.get('email')?.errors?.['required'] && profileForm.get('email')?.touched" class="err">
+      Email is required.
+    </div>
+    <div *ngIf="profileForm.get('email')?.errors?.['email'] && profileForm.get('email')?.touched" class="err">
+      Enter a valid email.
+    </div>
+  </div>
+
+  <!-- Phone -->
+  <div class="form-row">
+    <label for="phone">
+      <span class="material-icons-round">smartphone</span>
+      Phone
+    </label>
+    <input id="phone" type="text" formControlName="phone" />
+    <div *ngIf="profileForm.get('phone')?.errors?.['required'] && profileForm.get('phone')?.touched" class="err">
+      Phone number is required.
+    </div>
+    <div *ngIf="profileForm.get('phone')?.errors?.['pattern'] && profileForm.get('phone')?.touched" class="err">
+      Enter a valid 10-digit phone number.
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="form-row">
+    <label for="education">
+      <span class="material-icons-round">school</span>
+      Education
+    </label>
+    <input id="education" type="text" formControlName="education" />
+    <div *ngIf="profileForm.get('education')?.errors?.['required'] && profileForm.get('education')?.touched" class="err">
+      Education is required.
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <div class="form-row">
+    <label for="skills">
+      <span class="material-icons-round">construction</span>
+      Skills
+    </label>
+    <input id="skills" type="text" formControlName="skills" (keydown.enter)="addCommaToSkills($event)" />
+  </div>
+
+  <!-- Submit -->
+  <div class="submit-container">
+    <button type="submit" class="submit-btn" [disabled]="!profileForm.valid || !profileForm.touched">
+      <span class="material-icons-round">save</span>
+      Update
+    </button>
+  </div>
+
+</form>

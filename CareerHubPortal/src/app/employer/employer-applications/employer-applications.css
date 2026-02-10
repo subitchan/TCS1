@@ -1,0 +1,156 @@
+/* =============================================================
+   Job Applications Component — Blue Theme
+   File: applications.component.css
+   ============================================================= */
+
+/* 💼 Section Heading */
+.section-heading {
+  font-size: 1.5rem;
+  color: #1976d2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* 🔍 Search Bar */
+.search-bar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.search-bar input {
+  width: 60%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 0.95rem;
+  border: 1px solid #bbdefb;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.2s;
+}
+.search-bar input:focus {
+  border-color: #1e88e5;
+}
+
+/* 📨 No Results */
+.no-results {
+  text-align: center;
+  color: #666;
+  margin-top: 20px;
+}
+
+/* 📄 Application Cards — grid of square‑ish cards */
+.application-container {
+  display: flex;
+  flex-wrap: wrap;         /* cards wrap to new rows */
+  gap: 20px;               /* spacing between cards */
+  justify-content: center; /* center rows (optional) */
+  margin-top: 10px;
+}
+
+.application-card {
+  flex: 0 1 260px;         /* ~square width, height grows with content */
+  background: #ffffff;
+  border: 1px solid #90caf9;
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.08);
+  font-size: 0.95rem;
+  color: #0d47a1;
+}
+.application-card p {
+  margin: 5px 0;
+  word-wrap: break-word;   /* prevent overflow in narrow cards */
+}
+
+/* 📎 Download Button */
+.application-card button {
+  margin-top: 10px;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.application-card button:hover {
+  background-color: #1976d2;
+}
+
+/* ⏬ Status Dropdown */
+.application-card select {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #bbdefb;
+  font-size: 0.95rem;
+  color: #1565c0;
+  background-color: #fff;
+  width: 100%;             /* full width for consistency */
+}
+
+/* 📋 Icons */
+.material-icons-round {
+  font-size: 1.2rem;
+  color: #2196f3;
+}
+
+/* Wrapper for the three filters (search, job‑ID, status) */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Make the old search bar play nicely inside .filters */
+.filters .search-bar,
+.filters .search-bar input {
+  all: unset;              /* remove earlier centering so it flows inline */
+}
+.filters input[type="text"],
+.filters input[type="number"] {
+  width: 160px;            /* compact width so all filters fit in one row */
+  padding: 10px;
+  font-size: 0.95rem;
+  border: 1px solid #bbdefb;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.2s;
+}
+.filters input:focus {
+  border-color: #1e88e5;
+}
+
+/* Status dropdown (inside the filter bar) */
+.filters select {
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  border: 1px solid #bbdefb;
+  border-radius: 6px;
+  background: #fff;
+  color: #1565c0;
+  min-width: 150px;
+}
+.filters select:focus {
+  border-color: #1e88e5;
+}
+
+/* Responsive tweak: stack filters on narrow screens */
+@media (max-width: 480px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filters input,
+  .filters select {
+    width: 100%;
+  }
+}

@@ -1,0 +1,105 @@
+
+
+<form #registerForm="ngForm" (ngSubmit)="register()">
+       <h2>User Registration</h2>
+  <!-- Username -->
+  <input type="text" placeholder="Username" name="username"
+         [(ngModel)]="user.username" #username="ngModel" required />
+  <div *ngIf="username.invalid && username.touched" class="err">Username is required.</div>
+
+  <!-- Password Field Group -->
+  <div class="pw-wrapper">
+    <div class="pw-input-group">
+      <input [type]="showPassword ? 'text' : 'password'" placeholder="Password" name="password"
+             [(ngModel)]="user.password" #password="ngModel"
+             required minlength="8" (input)="evaluatePassword()" />
+             
+      <span class="pw-eye" (click)="showPassword = !showPassword" [title]="showPassword ? 'Hide' : 'Show'">
+        {{ showPassword ? '🔒' : '👁️' }}
+      </span>
+
+      <span class="pw-help" (click)="showReqs = !showReqs" title="Password requirements">?</span>
+    </div>
+
+    <div class="pw-meter">
+      <div class="bar" [style.width.%]="strengthPercent" [ngClass]="strengthClass"></div>
+    </div>
+    <small class="pw-text" [ngClass]="strengthClass">{{ strengthLabel }}</small>
+
+    <div class="pw-pop" *ngIf="showReqs">
+      <ul class="pw-reqs">
+        <li [class.ok]="reqLen">✏️ 8+ characters</li>
+        <li [class.ok]="reqUpper">🔠 uppercase letter</li>
+        <li [class.ok]="reqLower">🔡 lowercase letter</li>
+        <li [class.ok]="reqNumber">🔢 number</li>
+        <li [class.ok]="reqSpecial">✨ special character</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Password Errors -->
+  <div *ngIf="password.errors?.['required'] && password.touched" class="err">Password is required.</div>
+  <div *ngIf="password.errors?.['minlength'] && password.touched" class="err">Password must be at least 8 characters.</div>
+
+  <!-- Email -->
+  <input type="email" placeholder="Email" name="email"
+         [(ngModel)]="user.email" #email="ngModel" required email />
+  <div *ngIf="email.errors?.['required'] && email.touched" class="err">Email is required.</div>
+  <div *ngIf="email.errors?.['email'] && email.touched" class="err">Enter a valid email.</div>
+
+  <!-- Role -->
+  <div class="role-selection">
+    <label><input type="radio" name="role" value="JOB_SEEKER" [(ngModel)]="user.role" required /> Job Seeker</label>
+    <label><input type="radio" name="role" value="EMPLOYER" [(ngModel)]="user.role" required /> Employer</label>
+  </div>
+
+  <hr />
+
+  <!-- 👤 Job Seeker Fields -->
+  <div *ngIf="user.role === 'JOB_SEEKER'">
+    <input type="text" placeholder="Full Name" name="fullName"
+           [(ngModel)]="jobSeeker.fullName" #fullName="ngModel" required />
+    <div *ngIf="fullName.invalid && fullName.touched" class="err">Full Name is required.</div>
+
+    <input type="email" placeholder="Contact Email" name="jsEmail"
+           [(ngModel)]="jobSeeker.email" #jsEmail="ngModel" required email />
+    <div *ngIf="jsEmail.errors?.['required'] && jsEmail.touched" class="err">Contact email is required.</div>
+    <div *ngIf="jsEmail.errors?.['email'] && jsEmail.touched" class="err">Enter a valid email.</div>
+
+    <input type="text" placeholder="Phone" name="phone"
+           [(ngModel)]="jobSeeker.phone" #phone="ngModel" required />
+    <div *ngIf="phone.invalid && phone.touched" class="err">Phone is required.</div>
+
+    <input type="text" placeholder="Education" name="education"
+           [(ngModel)]="jobSeeker.education" #education="ngModel" required />
+    <div *ngIf="education.invalid && education.touched" class="err">Education is required.</div>
+
+    <input type="text" placeholder="Skills (comma-separated)" name="skills"
+           [(ngModel)]="jobSeeker.skills" #skills="ngModel" required />
+    <div *ngIf="skills.invalid && skills.touched" class="err">Skills are required.</div>
+  </div>
+
+  <!-- 🏢 Employer Fields -->
+  <div *ngIf="user.role === 'EMPLOYER'">
+    <input type="text" placeholder="Company Name" name="companyName"
+           [(ngModel)]="employer.companyName" #companyName="ngModel" required />
+    <div *ngIf="companyName.invalid && companyName.touched" class="err">Company Name is required.</div>
+
+    <input type="text" placeholder="Company Website" name="companyWebsite"
+           [(ngModel)]="employer.companyWebsite" #companyWebsite="ngModel" required />
+    <div *ngIf="companyWebsite.invalid && companyWebsite.touched" class="err">Company Website is required.</div>
+
+    <input type="email" placeholder="Contact Email" name="contactEmail"
+           [(ngModel)]="employer.contactEmail" #contactEmail="ngModel" required email />
+    <div *ngIf="contactEmail.errors?.['required'] && contactEmail.touched" class="err">Contact email is required.</div>
+    <div *ngIf="contactEmail.errors?.['email'] && contactEmail.touched" class="err">Enter a valid email.</div>
+  </div>
+
+  <!-- Submit -->
+  <button type="submit"
+          [disabled]="registerForm.invalid || !(user.password && user.password.length >= 8)">
+    Register
+  </button>
+</form>
+
+<p *ngIf="message">{{ message }}</p>

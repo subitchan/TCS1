@@ -1,0 +1,54 @@
+<h2>My Job Applications</h2>
+
+<!-- 🔍 Unified search -->
+<div class="search-wrapper">
+  <input
+    type="text"
+    class="search-input"
+    placeholder="Search company, location or salary"
+    [(ngModel)]="searchQuery" />
+</div>
+
+<!-- 🔽 Status Filter -->
+<select [(ngModel)]="selectedStatus" class="filter-dropdown">
+  <option value="ALL">All</option>
+  <option value="APPLIED">Applied</option>
+  <option value="SHORTLISTED">Shortlisted</option>
+  <option value="REJECTED">Rejected</option>
+  <option value="HIRED">Hired</option>
+</select>
+
+<div class="application-container">
+  <!-- ✅ Show filtered & searched applications -->
+  <div *ngFor="let app of filteredApplications"
+       class="application-card">
+    <h3>{{ app.job.jobTitle }}</h3>
+    <p><strong>Employer Name:</strong> {{ app.job.employer.companyName }}</p>
+    <p><span class="location-icon">📍</span> {{ app.job.location }}</p>
+    <p>{{ app.job.jobDescription }}</p>
+    <p><strong>Skills:</strong> {{ app.job.skillsRequired }}</p>
+    <p><strong>Salary:</strong> {{ app.job.salaryRange }}</p>
+
+    <!-- Status Badge -->
+    <div [ngClass]="{
+          'status-badge': true,
+          'applied': app.applicationStatus === 'APPLIED',
+          'shortlisted': app.applicationStatus === 'SHORTLISTED',
+          'rejected': app.applicationStatus === 'REJECTED',
+          'hired': app.applicationStatus === 'HIRED'
+        }">
+      ✅ {{ app.applicationStatus }}
+    </div>
+
+    <button (click)="download(app.resume.resumeId!,
+                              app.resume.resumeFilename)">
+      📄 Download Resume
+    </button>
+  </div>
+
+  <!-- ❌ No records found -->
+  <p *ngIf="filteredApplications.length === 0"
+     class="no-records">
+    🚫 No applications found
+  </p>
+</div>
